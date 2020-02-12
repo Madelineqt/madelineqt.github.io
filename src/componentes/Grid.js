@@ -35,7 +35,7 @@ export default function Grid({ posts}) {
 function GridFoto({_id, url, caption}){
     return(
         <Link to={`/post/${_id}/`} className="Grid__post">
-            <img src={`${window.location.protocol}//${window.location.hostname}:4000${url}`} alt={caption} className="Grid__post-img"/>
+            <img src={`https://clontagram.herokuapp.com${url}`} alt={caption} className="Grid__post-img"/>
         </Link>
     )
 }

@@ -39,7 +39,7 @@ export default function Post({ post, actualizarPost, mostrarError, usuario }){
     return (
         <div className="Post-Componente">
             <Avatar usuario={usuarioDelPost}/>
-            <img src={`${window.location.protocol}//${window.location.hostname}:4000${url}`} alt={caption} className="Post-Componente__img"/>
+            <img src={`https://clontagram.herokuapp.com${url}`} alt={caption} className="Post-Componente__img"/>
 
             <div className="Post-Componente__acciones">
                 <div className="Post-Componente__like-container">

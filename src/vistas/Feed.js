@@ -6,7 +6,7 @@ import Loading from '../componentes/Loading'
 import Post from '../componentes/Post'
 async function cargarPosts(fechaDelUltimaPost) {
     const query = fechaDelUltimaPost ? `?fecha=${fechaDelUltimaPost}` : ''
-    const { data: nuevosPosts } = await Axios.get(`${window.location.protocol}//${window.location.hostname}:4000/api/posts/feed${query}`)
+    const { data: nuevosPosts } = await Axios.get(`https://clontagram.herokuapp.com/api/posts/feed${query}`)
     return nuevosPosts
 }
 const NUMERO_DE_POSTS_POR_LLAMADA = 3

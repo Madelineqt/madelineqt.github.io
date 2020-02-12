@@ -17,8 +17,8 @@ export default function Explore ({mostrarError}){
         async function cargarPostsYUsuarios(){
         try{
             const [posts, usuarios] = await Promise.all([
-                Axios.get(`${window.location.protocol}//${window.location.hostname}:4000/api/posts/explore`).then(({ data}) => data),
-                Axios.get(`${window.location.protocol}//${window.location.hostname}:4000/api/usuarios/explore`).then(({ data}) => data),
+                Axios.get(`https://clontagram.herokuapp.com/api/posts/explore`).then(({ data}) => data),
+                Axios.get(`https://clontagram.herokuapp.com/api/usuarios/explore`).then(({ data}) => data),
             ])
             setPosts(posts)
             setUsuarios(usuarios)

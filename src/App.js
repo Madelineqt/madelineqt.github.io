@@ -28,7 +28,7 @@ export default function App() {
       }
 
       try {
-        const { data: usuario } = await Axios.get(`${window.location.protocol}//${window.location.hostname}:4000/api/usuarios/whoami`);
+        const { data: usuario } = await Axios.get(`https://clontagram.herokuapp.com/api/usuarios/whoami`);
         setUsuario(usuario);
         setCargandoUsuario(false);
       } catch (error) {
@@ -40,7 +40,7 @@ export default function App() {
   }, []);
 
   async function login(email, password) {
-    const { data } = await Axios.post(`${window.location.protocol}//${window.location.hostname}:4000/api/usuarios/login`, {
+    const { data } = await Axios.post(`https://clontagram.herokuapp.com/api/usuarios/login`, {
       email,
       password
     });
@@ -49,7 +49,7 @@ export default function App() {
   }
 
   async function signup(usuario) {
-    const { data } = await Axios.post(`${window.location.protocol}//${window.location.hostname}:4000/api/usuarios/signup`, usuario);
+    const { data } = await Axios.post(`https://clontagram.herokuapp.com/api/usuarios/signup`, usuario);
     setUsuario(data.usuario);
     setToken(data.token);
   }
@@ -57,7 +57,7 @@ export default function App() {
   async function editarperfil(editado, usuarioaeditar){
     console.log(usuarioaeditar)
     console.log(editado)
-    await Axios.put(`${window.location.protocol}//${window.location.hostname}:4000/api/usuarios/${usuarioaeditar}`, editado)
+    await Axios.put(`https://clontagram.herokuapp.com/api/usuarios/${usuarioaeditar}`, editado)
   }
 
   function logout() {

@@ -22,7 +22,7 @@ export default function PostVista({ history, mostrarError, match, usuario}) {
     useEffect(() => {
         async function cargarPost() {
           try {
-            const { data: post } = await Axios.get(`${window.location.protocol}//${window.location.hostname}:4000/api/posts/${postId}`);
+            const { data: post } = await Axios.get(`https://clontagram.herokuapp.com/api/posts/${postId}`);
             setPost(post);
             setLoading(false);
           } catch (error) {
@@ -103,7 +103,7 @@ function Post({
 return (
     <div className="Post">
         <div className="Post__image-container">
-            <img src={`${window.location.protocol}//${window.location.hostname}:4000${url}`} alt={caption}/>
+            <img src={`https://clontagram.herokuapp.com${url}`} alt={caption}/>
         </div>
         <div className="Post__side-bar">
             <Avatar usuario={usuario} />
