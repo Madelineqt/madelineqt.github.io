@@ -24,8 +24,8 @@ export default function Perfil({ mostrarError, usuario, match, logout, history})
         async function cargarPostsYUsuario(){
             try {
                 setCargandoPerfil(true)
-                const { data: usuario } = await Axios.get(`${window.location.protocol}//${window.location.hostname}:4000/api/usuarios/${username}`)
-                const { data: posts } = await Axios.get(`${window.location.protocol}//${window.location.hostname}:4000/api/posts/usuario/${usuario._id}`)
+                const { data: usuario } = await Axios.get(`https://clontagram.herokuapp.com/api/usuarios/${username}`)
+                const { data: posts } = await Axios.get(`https://clontagram.herokuapp.com/api/posts/usuario/${usuario._id}`)
                 setUsuarioDuenoDelPerfil(usuario)
                 setPosts(posts)
                 setCargandoPerfil(false)
@@ -57,7 +57,7 @@ async function handleImagenSeleccionada(event){
                 'Content-Type': file.type
             }
         }
-        const { data } = await Axios.post(`${window.location.protocol}//${window.location.hostname}:4000/api/usuarios/upload`, file, config)
+        const { data } = await Axios.post(`https://clontagram.herokuapp.com/api/usuarios/upload`, file, config)
         setUsuarioDuenoDelPerfil({...usuarioDuenoDelPerfil, imagen: data.url})
         setSubiendoImagen(false)
     } catch(error){
@@ -146,7 +146,7 @@ function ImagenAvatar({
     } else if (esElPerfilDeLaPersonaLogin()) {
         contenido = (
             <label className="Perfil__img-placeholder Perfil__img-placeholder--pointer" style={{
-                backgroundImage: usuarioDuenoDelPerfil.imagen ? `url(${window.location.protocol}//${window.location.hostname}:4000${usuarioDuenoDelPerfil.imagen})` : null,
+                backgroundImage: usuarioDuenoDelPerfil.imagen ? `https://clontagram.herokuapp.com${usuarioDuenoDelPerfil.imagen})` : null,
                 backgroundColor: stringToColor(usuarioDuenoDelPerfil.username)
             }}>
             <input type="file" onChange={handleImagenSeleccionada} className="hidden" name="imagen"/>
@@ -155,7 +155,7 @@ function ImagenAvatar({
     } else {
         contenido = (
             <div className="Perfil__img-placeholder" style={{
-                backgroundImage: usuarioDuenoDelPerfil.imagen ? `url(${window.location.protocol}//${window.location.hostname}:4000${usuarioDuenoDelPerfil.imagen})` : null,
+                backgroundImage: usuarioDuenoDelPerfil.imagen ? `url(https://clontagram.herokuapp.com${usuarioDuenoDelPerfil.imagen})` : null,
                 backgroundColor: stringToColor(usuarioDuenoDelPerfil.username)
             }
 
