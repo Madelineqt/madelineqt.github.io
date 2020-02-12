@@ -24,7 +24,7 @@ export async function toggleLike(post) {
 
 export async function comentar(post, mensaje, usuario) {
     const { data: nuevoComentario } = await Axios.post(
-        `${window.location.protocol}//${window.location.hostname}:4000/api/posts/${post._id}/comentarios`, {mensaje}
+        `https://clontagram.herokuapp.com/api/posts/${post._id}/comentarios`, {mensaje}
     )
     nuevoComentario.usuario = usuario
     const postConComentariosActualizados = {
