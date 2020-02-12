@@ -146,7 +146,7 @@ function ImagenAvatar({
     } else if (esElPerfilDeLaPersonaLogin()) {
         contenido = (
             <label className="Perfil__img-placeholder Perfil__img-placeholder--pointer" style={{
-                backgroundImage: usuarioDuenoDelPerfil.imagen ? `https://clontagram.herokuapp.com${usuarioDuenoDelPerfil.imagen})` : null,
+                backgroundImage: usuarioDuenoDelPerfil.imagen ? `url(https://clontagram.herokuapp.com${usuarioDuenoDelPerfil.imagen})` : null,
                 backgroundColor: stringToColor(usuarioDuenoDelPerfil.username)
             }}>
             <input type="file" onChange={handleImagenSeleccionada} className="hidden" name="imagen"/>
