@@ -21,7 +21,7 @@ export default function Upload({ history, mostrarError}) {
                 }
             }
 
-            const {data} = await Axios.post(`${window.location.protocol}//${window.location.hostname}:4000/api/posts/upload`, file, config)
+            const {data} = await Axios.post(`https://clontagram.herokuapp.com/api/posts/upload`, file, config)
             setImagenUrl(data.url)
             setSubiendoImagen(false)
         } catch (error){
@@ -50,7 +50,7 @@ async function handleSubmit(evento) {
             caption,
             url: imagenUrl,
         }
-        await Axios.post(`${window.location.protocol}//${window.location.hostname}:4000/api/posts`, body)
+        await Axios.post(`https://clontagram.herokuapp.com/api/posts`, body)
         setEnviandoPost(false)
         history.push('/')
     } catch (error) {
@@ -76,7 +76,7 @@ function SeccionSubirImagen({subiendoImagen, imagenUrl, handleImagenSeleccionada
     if (subiendoImagen) {
         return <Loading />
     } else if (imagenUrl) {
-        return <img src={`${window.location.protocol}//${window.location.hostname}:4000${imagenUrl}`} alt=""/>
+        return <img src={`https://clontagram.herokuapp.com${imagenUrl}`} alt=""/>
     } else {
         return (
             <label className="Upload__image-label">

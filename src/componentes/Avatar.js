@@ -22,7 +22,7 @@ export function ImagenAvatar({ usuario }) {
         tieneFoto = true
     }
     const style = {
-        backgroundImage: tieneFoto === true ? `url(${window.location.protocol}//${window.location.hostname}:4000${usuario.imagen})` : null,
+        backgroundImage: tieneFoto === true ? `url(https://clontagram.herokuapp.com${usuario.imagen})` : null,
         backgroundColor: stringTocolor(usuario.username)
     }
 

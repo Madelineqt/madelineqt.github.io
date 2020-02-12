@@ -20,7 +20,7 @@ export default function Editar({ mostrarError, match, usuario, editarperfil, log
         async function cargarEdicion(){
             try {
                 setCargandoEdicion(true)
-                const { data: usuario } = await Axios.get(`${window.location.protocol}//${window.location.hostname}:4000/api/usuarios/${username}`)
+                const { data: usuario } = await Axios.get(`https://clontagram.herokuapp.com/api/usuarios/${username}`)
                 setEdicion({
                     _id: usuario._id,
                     username: usuario.username,
